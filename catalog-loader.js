@@ -1,0 +1,1 @@
+(()=>{'use strict';window.N2CatalogReady=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='catalog.js?t='+Date.now();script.onload=()=>resolve(window.N2FLIX_CATALOG);script.onerror=()=>reject(new Error('تعذر تحميل ملف المنتجات.'));document.head.append(script);});})();
