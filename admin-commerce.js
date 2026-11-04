@@ -1,1 +1,1 @@
-// Product only administration; checkout, coupons, and order management are disabled.
+// Legacy placeholder. Store and order behavior is implemented in commerce.js and checkout.js.
