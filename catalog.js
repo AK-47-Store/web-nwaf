@@ -3,6 +3,9 @@ window.N2FLIX_CATALOG = {
   "settings": {
     "siteName": "N2flix",
     "welcomeMessage": "ارحبوو",
+    "welcomeSubtitle": "حيّاكم في N2flix، اختيارات رقمية على ذوقكم.",
+    "welcomeFrequency": "session",
+    "welcomeStyle": "spotlight",
     "tagline": "اختيارات رقمية. تجربة تستحقها.",
     "description": "اكتشف الاشتراكات والأدوات الرقمية، واستعرض كل التفاصيل قبل اختيارك.",
     "supportUrl": "https://wa.me/966568089893",
@@ -32,7 +35,10 @@ window.N2FLIX_CATALOG = {
     },
     "checkout": {
       "whatsapp": "966568089893",
-      "storeNotice": "سيؤكد فريق N2flix التوفر وطريقة الدفع والاستلام عبر واتساب قبل تنفيذ الطلب.",
+      "whatsappEnabled": true,
+      "telegramEnabled": true,
+      "templates": {},
+      "storeNotice": "سيؤكد فريق N2flix التوفر وطريقة الدفع والاستلام عبر قناة التواصل التي تختارها قبل تنفيذ الطلب.",
       "allowBank": false,
       "maintenance": false,
       "bank": {}
