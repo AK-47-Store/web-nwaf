@@ -40,3 +40,13 @@ button,a,input,select,textarea{accent-color:#f2f2f2}
 .catalog-error-detail{padding:10px 14px;margin-inline:auto;max-width:680px;color:#aaa;font-size:12px;overflow-wrap:anywhere}
 @media(max-width:680px){.settings-card{padding:18px}.admin-menu{top:5px;margin:12px 0 20px}.admin-menu a{font-size:12px;padding:8px 11px}.section-heading h2{font-size:20px}.welcome-preview h3{font-size:23px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+/* Branded handoff confirmation shown after a customer opens the WhatsApp order message. */
+.order-confirmation-dialog{position:fixed;width:min(470px,calc(100vw - 28px));max-height:min(84dvh,680px);padding:30px 26px 24px;border:1px solid #383838;border-radius:26px;background:radial-gradient(ellipse at 50% 0,#252525,#101010 72%);color:#f7f7f7;text-align:center;box-shadow:0 28px 100px #000c}
+.order-confirmation-dialog::backdrop{background:#000c;backdrop-filter:blur(8px)}
+.order-confirmation-dialog .welcome-close{color:#eee}
+.order-confirmation-mark{display:grid;place-items:center;width:58px;height:58px;margin:14px auto;border:1px solid #626262;border-radius:50%;background:#1c1c1c;color:#fff;font-size:24px;box-shadow:0 0 28px #fff1}
+.order-confirmation-dialog h2{margin:10px 0;font-size:23px}
+#orderConfirmationMessage{margin:0 auto 20px;max-width:38ch;color:#c9c9c9;line-height:1.95;white-space:pre-wrap;overflow-wrap:anywhere}
+#ackOrderConfirmation{width:min(100%,280px);min-height:48px}
+@media(max-width:520px){.order-confirmation-dialog{padding:28px 20px 22px;border-radius:22px}.order-confirmation-dialog h2{font-size:21px}}
+@media(prefers-reduced-motion:reduce){.order-confirmation-dialog{scroll-behavior:auto}}
