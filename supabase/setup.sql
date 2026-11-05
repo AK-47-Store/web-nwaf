@@ -20,13 +20,13 @@ create policy "Public can read the storefront catalog"
 drop policy if exists "Store admins can insert the storefront catalog" on public.storefront_catalog;
 create policy "Store admins can insert the storefront catalog"
   on public.storefront_catalog for insert to authenticated
-  with check (id = 1 and auth.jwt() -> 'app_metadata' ->> 'role' = 'store_admin');
+  with check (id = 1 and ((select auth.jwt()) -> 'app_metadata' ->> 'role') = 'store_admin');
 
 drop policy if exists "Store admins can update the storefront catalog" on public.storefront_catalog;
 create policy "Store admins can update the storefront catalog"
   on public.storefront_catalog for update to authenticated
-  using (id = 1 and auth.jwt() -> 'app_metadata' ->> 'role' = 'store_admin')
-  with check (id = 1 and auth.jwt() -> 'app_metadata' ->> 'role' = 'store_admin');
+  using (id = 1 and ((select auth.jwt()) -> 'app_metadata' ->> 'role') = 'store_admin')
+  with check (id = 1 and ((select auth.jwt()) -> 'app_metadata' ->> 'role') = 'store_admin');
 
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 values (
@@ -52,18 +52,18 @@ create policy "Public can view N2flix catalog images"
 drop policy if exists "Store admins can upload N2flix catalog images" on storage.objects;
 create policy "Store admins can upload N2flix catalog images"
   on storage.objects for insert to authenticated
-  with check (bucket_id = 'n2flix-catalog' and auth.jwt() -> 'app_metadata' ->> 'role' = 'store_admin');
+  with check (bucket_id = 'n2flix-catalog' and ((select auth.jwt()) -> 'app_metadata' ->> 'role') = 'store_admin');
 
 drop policy if exists "Store admins can update N2flix catalog images" on storage.objects;
 create policy "Store admins can update N2flix catalog images"
   on storage.objects for update to authenticated
-  using (bucket_id = 'n2flix-catalog' and auth.jwt() -> 'app_metadata' ->> 'role' = 'store_admin')
-  with check (bucket_id = 'n2flix-catalog' and auth.jwt() -> 'app_metadata' ->> 'role' = 'store_admin');
+  using (bucket_id = 'n2flix-catalog' and ((select auth.jwt()) -> 'app_metadata' ->> 'role') = 'store_admin')
+  with check (bucket_id = 'n2flix-catalog' and ((select auth.jwt()) -> 'app_metadata' ->> 'role') = 'store_admin');
 
 drop policy if exists "Store admins can delete N2flix catalog images" on storage.objects;
 create policy "Store admins can delete N2flix catalog images"
   on storage.objects for delete to authenticated
-  using (bucket_id = 'n2flix-catalog' and auth.jwt() -> 'app_metadata' ->> 'role' = 'store_admin');
+  using (bucket_id = 'n2flix-catalog' and ((select auth.jwt()) -> 'app_metadata' ->> 'role') = 'store_admin');
 
 -- After creating the admin user in Authentication -> Users, replace the email below
 -- and run this once to grant the storefront-only admin role.
